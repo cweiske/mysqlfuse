@@ -171,6 +171,7 @@ class MySQLFUSE(Fuse):
                                            user=self.user,
                                            db=self.db,
                                            passwd=self.passwd)
+        self.connection.autocommit(True);
         self.cursor=self.connection.cursor()
         self.dcursor=self.connection.cursor(MySQLdb.cursors.DictCursor)
         # Build a data structure encoding things.  The indexes aren't
